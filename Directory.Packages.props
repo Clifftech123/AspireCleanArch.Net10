@@ -38,6 +38,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
   </ItemGroup>
 
   <!-- ============================================ -->
@@ -75,19 +76,16 @@
     <PackageVersion Include="Google.Protobuf" Version="3.33.0" />
     <PackageVersion Include="Google.Protobuf.Tools" Version="3.33.0" />
     <PackageVersion Include="Grpc.AspNetCore" Version="2.71.0" />
-    <PackageVersion Include="Grpc.Tools" Version="2.71.0" />
+    <PackageVersion Include="Grpc.Tools" Version="2.72.0" />
   </ItemGroup>
 
 	<!-- ============================================ -->
   <!-- REDIS CACHING -->
   <!-- ============================================ -->
   <ItemGroup Label="Redis">
-    <PackageVersion Include="StackExchange.Redis" Version="2.8.16" />
+    <PackageVersion Include="StackExchange.Redis" Version="2.9.32" />
     <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.0" />
   </ItemGroup>
-
- 
-
 
   <!-- ============================================ -->
   <!-- SWAGGER / OPENAPI -->
@@ -96,7 +94,6 @@
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="7.2.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="7.2.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
   </ItemGroup>
 
   <!-- ============================================ -->
@@ -120,7 +117,7 @@
   <!-- HTTP CLIENT & POLLY -->
   <!-- ============================================ -->
   <ItemGroup Label="HTTP and Resilience">
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Http.Polly" Version="9.0.0" />
     <PackageVersion Include="Polly" Version="8.5.0" />
     <PackageVersion Include="Polly.Extensions.Http" Version="3.0.0" />
@@ -138,7 +135,7 @@
   <!-- UTILITIES -->
   <!-- ============================================ -->
   <ItemGroup Label="Utilities">
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="Bogus" Version="35.6.1" /> <!-- Fake data for testing/seeding -->
     <PackageVersion Include="Humanizer.Core" Version="2.14.1" />
     <PackageVersion Include="CsvHelper" Version="33.0.1" />
@@ -162,6 +159,7 @@
     <PackageVersion Include="Testcontainers.RabbitMq" Version="3.10.0" />
     <PackageVersion Include="Testcontainers.Redis" Version="3.10.0" />
     <PackageVersion Include="Respawn" Version="6.2.1" /> <!-- Database cleanup for tests -->
+    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
   </ItemGroup>
 
   <!-- ============================================ -->

@@ -1,4 +1,6 @@
-﻿namespace AspireCleanArch.Shared.DTOs.Product
+﻿using AspireCleanArch.Shared.Common;
+
+namespace AspireCleanArch.Shared.DTOs.Product
 {
     public record VendorDto
     {

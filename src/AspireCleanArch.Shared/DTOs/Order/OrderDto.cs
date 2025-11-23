@@ -1,4 +1,6 @@
-﻿namespace AspireCleanArch.Shared.DTOs.Order
+﻿using AspireCleanArch.Shared.Common;
+
+namespace AspireCleanArch.Shared.DTOs.Order
 {
     public record OrderDto
     {
