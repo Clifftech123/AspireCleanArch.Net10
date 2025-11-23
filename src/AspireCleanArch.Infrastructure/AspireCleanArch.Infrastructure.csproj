@@ -6,4 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- ============================================ -->
+  <!-- Package References -->
+  <!-- ============================================ -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+  </ItemGroup>
+
+  <!-- ============================================ -->
+  <!-- Project References -->
+  <!-- ============================================ -->
+  <ItemGroup>
+    <ProjectReference Include="..\AspireCleanArch.Domain\AspireCleanArch.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,42 @@
+<!-- Directory.Build.targets -->
+<!-- This file is automatically imported by ALL projects AFTER project files -->
+<Project>
+
+  <!-- ============================================ -->
+  <!-- CLEAN BUILD ARTIFACTS -->
+  <!-- ============================================ -->
+  <Target Name="CleanArtifacts" AfterTargets="Clean">
+    <Message Importance="High" Text="Cleaning artifacts for $(MSBuildProjectName)..." />
+    <RemoveDir Directories="$(BaseOutputPath)" />
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+  </Target>
+
+  <!-- ============================================ -->
+  <!-- DISPLAY BUILD INFORMATION -->
+  <!-- ============================================ -->
+  <Target Name="DisplayBuildInfo" BeforeTargets="Build">
+    <Message Importance="High" Text="============================================" />
+    <Message Importance="High" Text="Building: $(MSBuildProjectName)" />
+    <Message Importance="High" Text="Framework: $(TargetFramework)" />
+    <Message Importance="High" Text="Configuration: $(Configuration)" />
+    <Message Importance="High" Text="============================================" />
+  </Target>
+
+  <!-- ============================================ -->
+  <!-- VALIDATE CENTRAL PACKAGE MANAGEMENT -->
+  <!-- ============================================ -->
+  <Target Name="ValidateCentralPackageManagement" BeforeTargets="BeforeBuild">
+    <Error Condition="'$(ManagePackageVersionsCentrally)' != 'true'" 
+           Text="Project $(MSBuildProjectName) must use Central Package Management. Ensure Directory.Packages.props exists." />
+  </Target>
+
+  <!-- ============================================ -->
+  <!-- COPY PROTO FILES (For gRPC projects) -->
+  <!-- ============================================ -->
+  <Target Name="CopyProtoFiles" 
+          AfterTargets="Build" 
+          Condition="$(MSBuildProjectName.Contains('gRPC')) or $(MSBuildProjectName.Contains('Proto'))">
+    <Message Importance="High" Text="Proto files compiled successfully for $(MSBuildProjectName)" />
+  </Target>
+
+</Project>

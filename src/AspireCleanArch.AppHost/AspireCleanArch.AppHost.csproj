@@ -10,11 +10,21 @@
     <UserSecretsId>bb8e581d-d9f1-4db9-b593-abca89a02dae</UserSecretsId>
   </PropertyGroup>
 
+  <!-- ============================================ -->
+  <!-- Aspire Hosting Packages -->
+  <!-- ============================================ -->
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.0" />
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.SqlServer" />
+    <PackageReference Include="Aspire.Hosting.Redis" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" />
   </ItemGroup>
 
+  <!-- ============================================ -->
+  <!-- Project References -->
+  <!-- ============================================ -->
   <ItemGroup>
+    <ProjectReference Include="..\AspireCleanArch.Api\AspireCleanArch.Api.csproj" />
     <ProjectReference Include="..\AspireCleanArch.gRPC\AspireCleanArch.gRPC.csproj" />
   </ItemGroup>
 

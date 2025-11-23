@@ -1,17 +1,55 @@
 <!-- Directory.Build.props -->
 <!-- Place this file in the SOLUTION ROOT directory -->
+<!-- This file is automatically imported by ALL projects -->
 <Project>
 
   <!-- ============================================ -->
   <!-- COMMON PROPERTIES FOR ALL PROJECTS -->
   <!-- ============================================ -->
   <PropertyGroup>
-    <TargetFramework>net10</TargetFramework>
-    <LangVersion>latest</LangVersion>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn> <!-- Disable XML comment warnings -->
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Disable XML comment warnings -->
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- DISABLE AUTO-GENERATED ASSEMBLY ATTRIBUTES -->
+  <!-- ============================================ -->
+  <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- ASSEMBLY INFORMATION -->
+  <!-- ============================================ -->
+  <PropertyGroup>
+    <Authors>AspireCleanArch Team</Authors>
+    <Company>AspireCleanArch</Company>
+    <Product>AspireCleanArch.Net10</Product>
+    <Copyright>Copyright © AspireCleanArch 2024-$([System.DateTime]::UtcNow.Year)</Copyright>
+    <RepositoryUrl>https://github.com/Clifftech123/AspireCleanArch.Net10</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/Clifftech123/AspireCleanArch.Net10</PackageProjectUrl>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- VERSIONING -->
+  <!-- ============================================ -->
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0</Version>
+    <InformationalVersion>1.0.0</InformationalVersion>
   </PropertyGroup>
 
   <!-- ============================================ -->
@@ -22,9 +60,9 @@
     <AnalysisLevel>latest</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
   </PropertyGroup>
 
- 
   <!-- ============================================ -->
   <!-- BUILD CONFIGURATION -->
   <!-- ============================================ -->
@@ -40,10 +78,11 @@
     <DebugSymbols>true</DebugSymbols>
     <Optimize>true</Optimize>
     <DefineConstants>$(DefineConstants);RELEASE;TRACE</DefineConstants>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <!-- ============================================ -->
-  <!-- OUTPUT PATHS -->
+  <!-- OUTPUT PATHS (Keep default, don't centralize to artifacts) -->
   <!-- ============================================ -->
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -51,7 +90,26 @@
   </PropertyGroup>
 
   <!-- ============================================ -->
-  <!-- IMPLICIT GLOBAL USINGS -->
+  <!-- DETERMINISTIC BUILD (For CI/CD) -->
+  <!-- ============================================ -->
+  <PropertyGroup Condition="'$(CI)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- SOURCE LINK (For debugging NuGet packages) -->
+  <!-- ============================================ -->
+  <PropertyGroup>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- IMPLICIT GLOBAL USINGS (Available to all projects) -->
   <!-- ============================================ -->
   <ItemGroup>
     <Using Include="System" />
@@ -60,5 +118,22 @@
     <Using Include="System.Threading" />
     <Using Include="System.Threading.Tasks" />
   </ItemGroup>
+
+  <!-- ============================================ -->
+  <!-- TEST PROJECT SPECIFIC SETTINGS -->
+  <!-- ============================================ -->
+  <PropertyGroup Condition="$(MSBuildProjectName.Contains('Tests'))">
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- ASPIRE APPHOST SPECIFIC SETTINGS -->
+  <!-- ============================================ -->
+  <PropertyGroup Condition="$(MSBuildProjectName.Contains('AppHost'))">
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
 
 </Project>
