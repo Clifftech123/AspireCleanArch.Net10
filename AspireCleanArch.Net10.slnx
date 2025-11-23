@@ -5,10 +5,12 @@
     <File Path="README.MD" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="AspireCleanArch.proto/AspireCleanArch.proto.csproj" Id="4d76b59e-c35c-4f2d-9e6d-55550703539a" />
     <Project Path="src/AspireCleanArch.Api/AspireCleanArch.Api.csproj" />
     <Project Path="src/AspireCleanArch.AppHost/AspireCleanArch.AppHost.csproj" />
     <Project Path="src/AspireCleanArch.Application/AspireCleanArch.Application.csproj" />
     <Project Path="src/AspireCleanArch.Domain/AspireCleanArch.Domain.csproj" />
+    <Project Path="src/AspireCleanArch.gRPC/AspireCleanArch.gRPC.csproj" />
     <Project Path="src/AspireCleanArch.Infrastructure/AspireCleanArch.Infrastructure.csproj" />
     <Project Path="src/AspireCleanArch.Shared/AspireCleanArch.Shared.csproj" Id="5386c549-3765-4846-845e-869cdbff7a1b" />
   </Folder>
