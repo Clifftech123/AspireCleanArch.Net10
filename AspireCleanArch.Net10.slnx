@@ -1,7 +1,7 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path="Directory.Packages.props" />
-    <File Path="EADME.MD" />
+    <File Path="README.MD" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/AspireCleanArch.Api/AspireCleanArch.Api.csproj" />
