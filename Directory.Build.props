@@ -1,0 +1,64 @@
+<!-- Directory.Build.props -->
+<!-- Place this file in the SOLUTION ROOT directory -->
+<Project>
+
+  <!-- ============================================ -->
+  <!-- COMMON PROPERTIES FOR ALL PROJECTS -->
+  <!-- ============================================ -->
+  <PropertyGroup>
+    <TargetFramework>net10</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn> <!-- Disable XML comment warnings -->
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- CODE ANALYSIS & QUALITY -->
+  <!-- ============================================ -->
+  <PropertyGroup>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+ 
+  <!-- ============================================ -->
+  <!-- BUILD CONFIGURATION -->
+  <!-- ============================================ -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(DefineConstants);RELEASE;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- OUTPUT PATHS -->
+  <!-- ============================================ -->
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- IMPLICIT GLOBAL USINGS -->
+  <!-- ============================================ -->
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Linq" />
+    <Using Include="System.Threading" />
+    <Using Include="System.Threading.Tasks" />
+  </ItemGroup>
+
+</Project>

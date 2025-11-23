@@ -1,7 +1,7 @@
 ﻿
 
-[![.NET](https://img.shields.io/badge/.NET-9.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
-[![Aspire](https://img.shields.io/badge/Aspire-9.0-512BD4?logo=dotnet)](https://learn.microsoft.com/en-us/dotnet/aspire/)
+[![.NET](https://img.shields.io/badge/.NET-1.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
+[![Aspire](https://img.shields.io/badge/Aspire-1.0-512BD4?logo=dotnet)](https://learn.microsoft.com/en-us/dotnet/aspire/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 
@@ -13,35 +13,35 @@
 
 ## ✨ Features
 
-### 🏪 **Multi-Vendor Marketplace**
+###  **Multi-Vendor Marketplace**
 - Vendor registration and approval workflow
 - Product catalog management
 - Real-time inventory tracking
 - Commission-based revenue model
 - Vendor analytics dashboard
 
-### 🛒 **Order Management**
+###  **Order Management**
 - Shopping cart with real-time stock validation
 - Multi-vendor order support
 - Order lifecycle tracking (Pending → Delivered)
 - Cancellation and refund workflows
 - Order history and tracking
 
-### 💳 **Payment Processing**
+###  **Payment Processing**
 - Multiple payment methods (Credit Card, PayPal, Wallet)
 - Stripe and PayPal integration
 - Secure payment processing
 - Automated refund handling
 - Payment history and receipts
 
-### 👤 **User Management**
+###  **User Management**
 - ASP.NET Core Identity integration
 - JWT-based authentication
 - Role-based authorization (Customer, Vendor, Admin)
 - User profiles and address management
 - Email verification
 
-### 📊 **Admin Dashboard**
+###  **Admin Dashboard**
 - System-wide metrics and analytics
 - Vendor approval and management
 - Order oversight
@@ -50,7 +50,7 @@
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 
 ### **Communication Patterns**
@@ -62,12 +62,12 @@
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### **Backend**
-- **.NET 9** - Latest .NET framework
+- **.NET 10** - Latest .NET framework
 - **ASP.NET Core** - Web API framework
-- **Entity Framework Core 9** - ORM
+- **Entity Framework Core 10** - ORM
 - **MediatR** - CQRS implementation
 - **FluentValidation** - Input validation
 - **AutoMapper** - Object mapping
@@ -76,12 +76,12 @@
 - **RabbitMQ** - Message broker
 - **MassTransit** - Distributed application framework
 - **gRPC** - High-performance RPC framework
-- **SignalR** - Real-time communication (optional)
+- **SignalR** - Real-time communication 
 
 ### **Data & Caching**
 - **SQL Server** - Primary database
 - **Redis** - Distributed cache
-- **Dapper** - Lightweight ORM for queries (optional)
+
 
 ### **Authentication & Security**
 - **ASP.NET Core Identity** - User management
@@ -132,11 +132,11 @@ AspireCleanArch.NetI0/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### **Prerequisites**
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/download)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/) or [VS Code](https://code.visualstudio.com/)
 - [SQL Server](https://www.microsoft.com/sql-server) (or use Docker)
@@ -146,50 +146,12 @@ AspireCleanArch.NetI0/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ecommerce-platform.git
-   cd ecommerce-platform
-   ```
-
-2. **Restore packages**
-   ```bash
-   dotnet restore
-   ```
-
-3. **Update connection strings**
+   git clone https://github.com/Clifftech123/AspireCleanArch.Net10.git
    
-   Edit `src/AspireCleanArch.Api/appsettings.json`:
-   ```json
-   {
-     "ConnectionStrings": {
-       "DefaultConnection": "Server=localhost;Database=ECommerceDb;Trusted_Connection=True;"
-     }
-   }
    ```
 
-4. **Run database migrations**
-   ```bash
-   cd src/AspireCleanArch.Infrastructure
-   dotnet ef database update --startup-project ../AspireCleanArch.Api
-   ```
 
-5. **Run with Aspire** (Recommended)
-   ```bash
-   cd src/AspireCleanArch.AppHost
-   dotnet run
-   ```
-
-   Or run the API directly:
-   ```bash
-   cd src/AspireCleanArch.Api
-   dotnet run
-   ```
-
-6. **Access the application**
-   - API: https://localhost:7001
-   - Swagger: https://localhost:7001/swagger
-   - Aspire Dashboard: http://localhost:15888
-
-### **Using Docker Compose** (Alternative)
+### **Using Docker Compose** 
 
 ```bash
 docker-compose up -d
@@ -212,9 +174,7 @@ dotnet test tests/AspireCleanArch.Domain.Tests
 
 
 
----
-
-## 🔑 Key Design Patterns
+##  Key Design Patterns
 
 - **Clean Architecture** - Clear separation of concerns
 - **CQRS** - Command Query Responsibility Segregation
@@ -227,7 +187,7 @@ dotnet test tests/AspireCleanArch.Domain.Tests
 
 ---
 
-## 📊 Domain Model
+##  Domain Model
 
 ### **Core Entities**
 
@@ -251,7 +211,7 @@ OrderItem (N) ──► (1) Vendor
 
 ---
 
-## 🔄 Event Flow
+##  Event Flow
 
 ### **Order Creation Flow**
 
@@ -270,60 +230,3 @@ OrderItem (N) ──► (1) Vendor
 
 
 
-## 🐳 Docker Support
-
-### **Build Docker Image**
-
-```bash
-docker build -t ecommerce-api:latest -f src/AspireCleanArch.Api/Dockerfile .
-```
-
-### **Run with Docker Compose**
-
-```bash
-docker-compose up -d
-```
-
----
-
-## 📦 NuGet Packages
-
-All package versions are managed centrally in `Directory.Packages.props`:
-
-- **Aspire** - Cloud-native orchestration
-- **Entity Framework Core** - ORM
-- **MediatR** - CQRS
-- **FluentValidation** - Validation
-- **MassTransit** - Messaging
-- **Grpc.AspNetCore** - gRPC
-- **Serilog** - Logging
-- **xUnit** - Testing
-
-[View complete package list](Directory.Packages.props)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) first.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 🎨 OPTIONAL: Add Badges
-
-Add these at the top of your README for a professional look:
-
-
-[![.NET](https://img.shields.io/badge/.NET-9.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
-[![C#](https://img.shields.io/badge/C%23-12.0-239120?logo=c-sharp)](https://learn.microsoft.com/dotnet/csharp/)
-[![Aspire](https://img.shields.io/badge/Aspire-9.0-512BD4?logo=dotnet)](https://learn.microsoft.com/dotnet/aspire/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/ecommerce-platform)](https://github.com/yourusername/ecommerce-platform/issues)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/ecommerce-platform)](https://github.com/yourusername/ecommerce-platform/stargazers)
