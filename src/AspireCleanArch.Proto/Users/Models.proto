@@ -1,0 +1,58 @@
+﻿syntax = "proto3";
+
+message GetUserRequest {
+    string user_id = 1;
+}
+
+message GetUsersByIdsRequest {
+    repeated string user_ids = 1;
+}
+
+message UserResponse {
+    string user_id = 1;
+    string identity_id = 2;
+    string email = 3;
+    string first_name = 4;
+    string last_name = 5;
+    string phone_number = 6;
+    UserRoleType role = 7;
+    UserStatusType status = 8;
+    string profile_image_url = 9;
+    int64 created_at = 10;
+    int64 last_login_at = 11;
+}
+
+message ValidateUserRequest {
+    string user_id = 1;
+}
+
+message ValidationResponse {
+    bool is_valid = 1;
+    string message = 2;
+}
+
+message GetUsersByRoleRequest {
+    UserRoleType role = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+}
+
+message GetUsersResponse {
+    repeated UserResponse users = 1;
+    int32 total_count = 2;
+}
+
+
+enum UserRoleType {
+    CUSTOMER = 0;
+    VENDOR = 1;
+    ADMIN = 2;
+    SUPER_ADMIN = 3;
+}
+
+enum UserStatusType {
+    ACTIVE = 0;
+    SUSPENDED = 1;
+    DEACTIVATED = 2;
+    PENDING_VERIFICATION = 3;
+}

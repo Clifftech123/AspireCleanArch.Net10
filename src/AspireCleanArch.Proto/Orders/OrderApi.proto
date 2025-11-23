@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+package order;
+
+import "Orders/Models.proto";
+
+
+service OrderService {
+    rpc GetOrder (GetOrderRequest) returns (OrderResponse);
+    rpc GetOrdersByIds (GetOrdersByIdsRequest) returns (GetOrdersResponse);
+    rpc GetOrdersByUser (GetOrdersByUserRequest) returns (GetOrdersResponse);
+    rpc GetOrdersByVendor (GetOrdersByVendorRequest) returns (GetOrdersResponse);
+    rpc GetOrderMetrics (GetOrderMetricsRequest) returns (OrderMetricsResponse);
+}
+

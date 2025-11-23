@@ -1,0 +1,13 @@
+﻿syntax = "proto3";
+
+package product;
+
+option csharp_namespace = "AspireCleanArch.Proto.Products";
+
+
+service ProductService {
+    rpc GetProduct (GetProductRequest) returns (ProductResponse);
+    rpc GetProductsByIds (GetProductsByIdsRequest) returns (GetProductsResponse);
+    rpc GetProductsByVendor (GetProductsByVendorRequest) returns (GetProductsResponse);
+    rpc ValidateProduct (ValidateProductRequest) returns (ValidationResponse);
+}

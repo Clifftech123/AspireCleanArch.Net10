@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- ============================================ -->
+  <!-- gRPC Package References (Versions from Directory.Packages.props) -->
+  <!-- ============================================ -->
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" />
+    <PackageReference Include="Grpc.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- ============================================ -->
+  <!-- Proto Files Configuration -->
+  <!-- ============================================ -->
+  <ItemGroup>
+    <Protobuf Include="Orders\*.proto" GrpcServices="None" />
+    <Protobuf Include="Product\*.proto" GrpcServices="None" />
+    <Protobuf Include="Vendor\*.proto" GrpcServices="None" />
+  </ItemGroup>
+
+</Project>

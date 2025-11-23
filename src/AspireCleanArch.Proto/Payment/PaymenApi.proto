@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+package payment;
+
+import "Payment/Models.proto";
+
+// PaymentService - Query/Read operations only
+// All write operations (Process, Refund, Create) should be in REST API
+service PaymentService {
+    rpc GetPayment (GetPaymentRequest) returns (PaymentResponse);
+    rpc GetPaymentsByIds (GetPaymentsByIdsRequest) returns (GetPaymentsResponse);
+    rpc GetPaymentStatus (GetPaymentStatusRequest) returns (PaymentStatusResponse);
+    rpc GetPaymentsByOrder (GetPaymentsByOrderRequest) returns (GetPaymentsResponse);
+    rpc GetPaymentsByUser (GetPaymentsByUserRequest) returns (GetPaymentsResponse);
+    rpc GetPaymentHistory (GetPaymentHistoryRequest) returns (GetPaymentHistoryResponse);
+}

@@ -6,12 +6,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <!-- ============================================ -->
+  <!-- Proto Files Configuration -->
+  <!-- ============================================ -->
   <ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
   </ItemGroup>
 
+  <!-- ============================================ -->
+  <!-- gRPC Package References (Versions from Directory.Packages.props) -->
+  <!-- ============================================ -->
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.64.0" />
+    <PackageReference Include="Grpc.AspNetCore" />
+  </ItemGroup>
+
+  <!-- ============================================ -->
+  <!-- Project References -->
+  <!-- ============================================ -->
+  <ItemGroup>
+    <ProjectReference Include="..\AspireCleanArch.Proto\AspireCleanArch.Proto.csproj" />
   </ItemGroup>
 
 </Project>

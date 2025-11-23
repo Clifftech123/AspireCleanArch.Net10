@@ -11,4 +11,8 @@
     <ProjectReference Include="..\AspireCleanArch.Shared\AspireCleanArch.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Orders\Commands\" />
+  </ItemGroup>
+
 </Project>
