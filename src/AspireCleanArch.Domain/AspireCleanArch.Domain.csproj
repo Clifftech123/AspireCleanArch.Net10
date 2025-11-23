@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Errors\" />
+    <Folder Include="Commands\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Consumers\" />
+    <Folder Include="EventHandler\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Interfaces\Repositories\" />
+    <Folder Include="Settings\" />
+    <Folder Include="Notifications\" />
+  </ItemGroup>
+
 </Project>
