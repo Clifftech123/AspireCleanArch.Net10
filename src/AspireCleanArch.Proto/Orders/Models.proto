@@ -1,0 +1,114 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "AspireCleanArch.Proto.Order.Models";
+
+// ============================================
+// Order Query Messages (Read-Only)
+// ============================================
+
+message GetOrderRequest {
+    string order_id = 1;
+}
+
+message GetOrdersByIdsRequest {
+    repeated string order_ids = 1;
+}
+
+message OrderResponse {
+    string order_id = 1;
+    string order_number = 2;
+    string user_id = 3;
+    string user_name = 4;
+    OrderStatusType status = 5;
+    double subtotal_amount = 6;
+    double tax_amount = 7;
+    double shipping_amount = 8;
+    double discount_amount = 9;
+    double total_amount = 10;
+    string currency = 11;
+    ShippingAddressMessage shipping_address = 12;
+    string payment_id = 13;
+    string tracking_number = 14;
+    string courier_service = 15;
+    repeated OrderItemMessage items = 16;
+    int64 order_date = 17;
+    int64 shipped_date = 18;
+    int64 delivered_date = 19;
+}
+
+message GetOrdersByUserRequest {
+    string user_id = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+    OrderStatusType status = 4; // Optional filter
+}
+
+message GetOrdersByVendorRequest {
+    string vendor_id = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+}
+
+message GetOrdersResponse {
+    repeated OrderResponse orders = 1;
+    int32 total_count = 2;
+}
+
+message GetOrderMetricsRequest {
+    int64 start_date = 1;
+    int64 end_date = 2;
+}
+
+message OrderMetricsResponse {
+    int32 pending_orders = 1;
+    int32 confirmed_orders = 2;
+    int32 processing_orders = 3;
+    int32 shipped_orders = 4;
+    int32 delivered_orders = 5;
+    int32 cancelled_orders = 6;
+    double total_revenue = 7;
+    double average_order_value = 8;
+}
+
+// ============================================
+// Supporting Messages
+// ============================================
+
+message OrderItemMessage {
+    string item_id = 1;
+    string product_id = 2;
+    string product_name = 3;
+    string product_sku = 4;
+    string vendor_id = 5;
+    string vendor_name = 6;
+    int32 quantity = 7;
+    double unit_price = 8;
+    double total_price = 9;
+    string currency = 10;
+}
+
+message ShippingAddressMessage {
+    string recipient_name = 1;
+    string phone_number = 2;
+    string street = 3;
+    string city = 4;
+    string state = 5;
+    string zip_code = 6;
+    string country = 7;
+    string delivery_instructions = 8;
+}
+
+// ============================================
+// Enums
+// ============================================
+
+enum OrderStatusType {
+    PENDING = 0;
+    PAYMENT_CONFIRMED = 1;
+    PROCESSING = 2;
+    SHIPPED = 3;
+    DELIVERED = 4;
+    COMPLETED = 5;
+    CANCELLED = 6;
+    REFUNDED = 7;
+}

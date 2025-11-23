@@ -1,0 +1,13 @@
+﻿syntax = "proto3";
+
+package User;
+
+import "Users/Models.proto";
+
+
+service UsersService {
+    rpc GetUser (GetUserRequest) returns (UserResponse);
+    rpc GetUsersByIds (GetUsersByIdsRequest) returns (GetUsersResponse);
+    rpc GetUsersByRole (GetUsersByRoleRequest) returns (GetUsersResponse);
+    rpc ValidateUser (ValidateUserRequest) returns (ValidationResponse);
+}

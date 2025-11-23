@@ -1,0 +1,83 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "AspireCleanArch.Proto.Vendors";
+
+
+message GetVendorRequest {
+    string vendor_id = 1;
+}
+
+message GetVendorsByIdsRequest {
+    repeated string vendor_ids = 1;
+}
+
+message GetVendorsResponse {
+    repeated VendorResponse vendors = 1;
+    int32 total_count = 2;
+}
+
+message VendorResponse {
+    string vendor_id = 1;
+    string business_name = 2;
+    string email = 3;
+    string phone_number = 4;
+    string contact_person_name = 5;
+    VendorStatusType status = 6;
+    double commission_rate = 7;
+    double total_revenue = 8;
+    int64 created_at = 9;
+}
+
+message GetVendorAnalyticsRequest {
+    string vendor_id = 1;
+    int64 start_date = 2;
+    int64 end_date = 3;
+}
+
+message VendorAnalyticsResponse {
+    string vendor_id = 1;
+    int32 total_products = 2;
+    int32 active_products = 3;
+    int32 total_orders = 4;
+    double total_revenue = 5;
+    double average_order_value = 6;
+    int32 products_sold = 7;
+}
+
+message GetVendorProductsRequest {
+    string vendor_id = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+}
+
+message GetProductsResponse {
+    repeated ProductMessage products = 1;
+    int32 total_count = 2;
+}
+
+message ProductMessage {
+    string product_id = 1;
+    string name = 2;
+    string sku = 3;
+    double price = 4;
+    int32 stock_quantity = 5;
+    string status = 6;
+}
+
+message ValidateVendorRequest {
+    string vendor_id = 1;
+}
+
+message ValidationResponse {
+    bool is_valid = 1;
+    string message = 2;
+}
+
+
+
+enum VendorStatusType {
+    PENDING = 0;
+    ACTIVE = 1;
+    SUSPENDED = 2;
+    DEACTIVATED = 3;
+}

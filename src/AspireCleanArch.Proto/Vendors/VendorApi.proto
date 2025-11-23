@@ -1,0 +1,13 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "AspireCleanArch.Grpc.Vendor";
+
+package vendor;
+
+service VendorService {
+    rpc GetVendor (GetVendorRequest) returns (VendorResponse);
+    rpc GetVendorsByIds (GetVendorsByIdsRequest) returns (GetVendorsResponse);
+    rpc GetVendorAnalytics (GetVendorAnalyticsRequest) returns (VendorAnalyticsResponse);
+    rpc GetVendorProducts (GetVendorProductsRequest) returns (GetProductsResponse);
+    rpc ValidateVendor (ValidateVendorRequest) returns (ValidationResponse);
+}

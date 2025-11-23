@@ -1,0 +1,116 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "AspireCleanArch.Proto.Payment.Models";
+
+
+
+message GetPaymentRequest {
+    string payment_id = 1;
+}
+
+message GetPaymentsByIdsRequest {
+    repeated string payment_ids = 1;
+}
+
+message PaymentResponse {
+    string payment_id = 1;
+    string order_id = 2;
+    string user_id = 3;
+    double amount = 4;
+    string currency = 5;
+    PaymentStatusType status = 6;
+    PaymentMethodType payment_method = 7;
+    string transaction_id = 8;
+    string card_last4 = 9;
+    string card_brand = 10;
+    int64 initiated_at = 11;
+    int64 completed_at = 12;
+    string failure_reason = 13;
+}
+
+message GetPaymentStatusRequest {
+    string payment_id = 1;
+}
+
+message PaymentStatusResponse {
+    string payment_id = 1;
+    string order_id = 2;
+    PaymentStatusType status = 3;
+    string transaction_id = 4;
+    double amount = 5;
+    string currency = 6;
+    int64 initiated_at = 7;
+    int64 completed_at = 8;
+    string failure_reason = 9;
+}
+
+message GetPaymentsByOrderRequest {
+    string order_id = 1;
+}
+
+message GetPaymentsByUserRequest {
+    string user_id = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+}
+
+message GetPaymentsResponse {
+    repeated PaymentRecord payments = 1;
+    int32 total_count = 2;
+}
+
+message GetPaymentHistoryRequest {
+    string user_id = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+    int64 start_date = 4;
+    int64 end_date = 5;
+}
+
+message GetPaymentHistoryResponse {
+    repeated PaymentRecord payments = 1;
+    int32 total_count = 2;
+}
+
+
+message PaymentRecord {
+    string payment_id = 1;
+    string order_id = 2;
+    double amount = 3;
+    string currency = 4;
+    PaymentStatusType status = 5;
+    PaymentMethodType payment_method = 6;
+    string card_last4 = 7;
+    string card_brand = 8;
+    int64 initiated_at = 9;
+    int64 completed_at = 10;
+}
+
+
+
+enum PaymentMethodType {
+    CREDIT_CARD = 0;
+    DEBIT_CARD = 1;
+    PAYPAL = 2;
+    BANK_TRANSFER = 3;
+    WALLET = 4;
+    CASH_ON_DELIVERY = 5;
+}
+
+enum PaymentStatusType {
+    PENDING = 0;
+    PROCESSING = 1;
+    COMPLETED = 2;
+    FAILED = 3;
+    REFUNDED = 4;
+    PARTIALLY_REFUNDED = 5;
+    CANCELLED = 6;
+}
+
+enum PaymentProviderType {
+    STRIPE = 0;
+    PAYPAL = 1;
+    SQUARE = 2;
+    RAZORPAY = 3;
+    INTERNAL = 4;
+}
