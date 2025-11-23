@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+    <File Path="EADME.MD" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/AspireCleanArch.Api/AspireCleanArch.Api.csproj" />
+    <Project Path="src/AspireCleanArch.AppHost/AspireCleanArch.AppHost.csproj" />
+    <Project Path="src/AspireCleanArch.Application/AspireCleanArch.Application.csproj" />
+    <Project Path="src/AspireCleanArch.Domain/AspireCleanArch.Domain.csproj" />
+    <Project Path="src/AspireCleanArch.Infrastructure/AspireCleanArch.Infrastructure.csproj" />
+    <Project Path="src/AspireCleanArch.Shared/AspireCleanArch.Shared.csproj" Id="5386c549-3765-4846-845e-869cdbff7a1b" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AspireCleanArch.Api.Tests/AspireCleanArch.Api.Tests.csproj" Id="6ede17c5-612a-4b67-99f8-24a66f324409" />
+    <Project Path="tests/AspireCleanArch.Application.Tests/AspireCleanArch.Application.Tests.csproj" Id="62438a25-c33b-400d-83a2-b840496d68d3" />
+    <Project Path="tests/AspireCleanArch.Domain.Tests/AspireCleanArch.Domain.Tests.csproj" Id="69668039-b1cb-4018-bfc5-e09a564c8b66" />
+  </Folder>
+</Solution>
